@@ -60,13 +60,15 @@ def save():
                     json.dump(file_temp, file, indent=4)
             except:
                 with open('data.json', 'w') as file:
-                    # dumping new data
+                    # creating + dumping new data
                     messagebox.showinfo(title='Saved!', message='Successfully Saved The Password!')
                     json.dump(new_data, file, indent=4)
 
+
+            finally:
                 # To remove the entered choices
-        website_entry.delete(first=0, last=tk.END)
-        password_entry.delete(first=0, last=tk.END)
+                website_entry.delete(first=0, last=tk.END)
+                password_entry.delete(first=0, last=tk.END)
 
 
 def save_data(website, email, password):
