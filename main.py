@@ -4,6 +4,7 @@ import pandas as pd
 from tkinter import messagebox
 import random as rd
 import pyperclip
+import json
 
 # Colours
 BLUE = '#396EB0'
@@ -45,9 +46,25 @@ def save():
             email = email_entry.get()
             password = password_entry.get()
             save_data(website, email, password)
-            messagebox.showinfo(title='Saved!', message='Successfully Saved The Password!')
+            new_data = {website: {'email': email, 'password': password, }}
+            # To prevent the error in the first save
+            try:
+                with open('data.json', 'r') as file:
+                    # Reading old data
+                    file_temp = json.load(file)
+                    file_temp.update(new_data)
 
-        # To remove the entered choices
+                with open('data.json', 'w') as file:
+                    # dumping new data
+                    messagebox.showinfo(title='Saved!', message='Successfully Saved The Password!')
+                    json.dump(file_temp, file, indent=4)
+            except:
+                with open('data.json', 'w') as file:
+                    # dumping new data
+                    messagebox.showinfo(title='Saved!', message='Successfully Saved The Password!')
+                    json.dump(new_data, file, indent=4)
+
+                # To remove the entered choices
         website_entry.delete(first=0, last=tk.END)
         password_entry.delete(first=0, last=tk.END)
 
