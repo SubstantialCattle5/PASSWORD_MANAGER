@@ -13,12 +13,23 @@ SKIN = '#FC997C'
 WHITE = '#DADDFC'
 
 
+# ---------------------------- SEARCH  ------------------------------- #
+def search():
+    try:
+        with open('data.json', 'r') as filehandle:
+            data = json.load(filehandle)
+            text = data[website_entry.get()]
+            messagebox.showinfo(title='PASSWORD', message=f"Email Id : {text['email']}\nPassword : {text['password']}")
+    except:
+        messagebox.showerror(title='ERROR', message='File Does Not Exist!')
+
+
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 
 def password_gene():
     password_entry.delete(first=0, last='end')
-    # Creating a pw out of random characters
+    # Creating a pw out of random characters of length 12 characters
     generated_pw = ''.join([chr(rd.randint(33, 125)) for i in range(12)])
     pyperclip.copy(generated_pw)
     # Printing the password
@@ -122,8 +133,17 @@ space = tk.Label(master=root, text='', bg=WHITE)
 space.grid(row=5, column=2)
 
 # Save button
-save_button = tk.Button(master=root, text='Save', command=save, width=10,
+save_button = tk.Button(master=root, text='Save', command=save, width=15,
                         relief='groove', activebackground=SKIN, bg=DARK_BLUE, fg=WHITE)
 save_button.grid(row=6, column=2)
+
+# Space b'w passwords and save button
+space2 = tk.Label(master=root, text='', bg=WHITE)
+space2.grid(row=7, column=2)
+
+# Search button
+search_button = tk.Button(master=root, text='Search', width=10, relief='groove', activebackground=SKIN, bg=DARK_BLUE,
+                          fg=WHITE, command=search)
+search_button.grid(row=2, column=2, sticky='e')
 
 root.mainloop()

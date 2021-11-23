@@ -1,10 +1,14 @@
 {
     "amazon": {
         "email": "sample@gmail.com",
-        "password": "tiIcusE8_F:S"
+        "password": "a3Bof^mixpbi"
     },
     "twitter": {
         "email": "sample@gmail.com",
         "password": "yQ@bwx]LFNBS"
+    },
+    "flipkart": {
+        "email": "sample@gmail.com",
+        "password": "5EjK?WsGzDCF"
     }
 }
