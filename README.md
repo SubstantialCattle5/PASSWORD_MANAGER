@@ -16,7 +16,7 @@ and in the csv file for backup(in case you overwrite an old data).
 
  
 ## User Interface 
-<hr> 
+
 
 ### Main User Screen 
 <img src="imgs/Password Manager.png">
