@@ -1,3 +1,14 @@
 {
-
+    "amazon": {
+        "email": "sample@gmail.com",
+        "password": "&_CnZwp!@n3:"
+    },
+    "twitter": {
+        "email": "sample@gmail.com",
+        "password": "u<fWhf1_n[yx"
+    },
+    "youtube": {
+        "email": "sample@gmail.com",
+        "password": "]r8!yyfwPdI#"
+    }
 }
